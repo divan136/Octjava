@@ -1,0 +1,214 @@
+
+q1
+public class SmallestInThree {
+ 
+    public static void main(String[] args) {
+        //three numbers
+        int a = 100;
+        int b = 70;
+        int c = 60;
+         
+        int smallest;
+         
+        //find the smallest
+        if(a<b) {
+            if(c<a) {
+                smallest = c;
+            } else {
+                smallest = a;
+            }
+        } else {
+            if(b<c) {
+                smallest = b;
+            } else {
+                smallest = c;
+            }
+        }
+         
+        System.out.println(smallest + " is the smallest.");
+    }
+}
+
+q2
+import java.util.Scanner;
+public class Main6 {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String s = sc.nextLine();
+    
+    String s1 = UserMainCode.getMiddleChars(s);
+    System.out.println(s1);
+  }
+}
+ class UserMainCode {
+    public static String getMiddleChars(String str)
+    {
+                StringBuffer sb=new StringBuffer();
+                 if(str.length()%2==0)
+                 {
+                 sb.append(str.substring((str.length()/2)-1,(str.length()/2)+1));
+                 }
+                 return sb.toString();
+                 }
+    }
+
+q3
+import java.util.Scanner;
+
+public class Vowels {
+
+public static void main(String[] args) {
+    int count = 0;
+    System.out.println("Enter something");
+    Scanner sc = new Scanner(System.in);
+    String sentence = sc.nextLine();
+
+    for ( int i=0; i<sentence.length(); i++){
+        char ch = sentence.charAt(i);
+        if(ch == 'a'|| ch == 'e'|| ch == 'i' ||ch == 'o' ||ch == 'u'||ch == ' '){
+            count ++;
+         }
+      }
+      System.out.println("Number of vowels  "+count);
+   }
+
+
+    }
+
+q4
+
+
+public class First {
+    
+
+    int roomNo;
+    String roomType;
+    float roomArea;
+    boolean acMachine;
+    void setData(int rno, String rt, float area, boolean ac) {
+    roomNo = rno;
+    roomType = rt;
+    roomArea = area;
+    acMachine = ac;
+    }
+    void displayData() {
+    System.out.println("The room#.Is" + roomNo);
+    System.out.println("The room Type is" + roomType);
+    System.out.println("The room area is" + roomArea);
+    String s = (acMachine) ?"yes" :"no";
+    System.out.println("The A / c Machine needed" + s);
+    }
+    public static void main(String arg[]) {
+    First first1 = new First();
+    first1.setData(101, "Deluxe", 240.0f , true);
+    first1.displayData();
+    }
+    }
+
+
+
+q5
+
+class A
+{
+
+}
+
+public class B extends A {
+public static void main(String[] args) {
+        
+    }
+}
+
+
+q6
+
+public class Addition
+{
+    public void sum(int ...arr){
+        int sum=0;
+        String s="";
+
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            if(i !=0)
+            {
+             s=s+arr[0]+"+"+arr[i]+"=";
+          System.out.println(s+sum) ;
+            }
+        }
+      
+    }
+public static void main(String[] args) {
+    Addition a=new Addition();
+    a.sum(1,2,3,4,5,6);
+
+}
+}
+q7
+
+
+class Cycle{ 
+    String define_me(){ 
+        return "a vehicle with with an engine."; 
+    } 
+} 
+ 
+class Bike extends Cycle{ 
+    String define_me(){ 
+        return "a cycle with an engine."; 
+    } 
+     
+    Bike(){ 
+        System.out.println("Hello I am a motorcycle, I am "+ define_me()); 
+        String temp=define_me(); 
+        System.out.println("My ancestor is a cycle who is "+ temp ); 
+    } 
+     
+} 
+public class InheritenceExample{ 
+    public static void main(String []args){ 
+        Bike M=new Bike(); 
+    } 
+} 
+q8
+
+class Animal{ 
+    void walk(){ 
+    System.out.println("I am walking"); 
+    } 
+    } 
+    class Dog extends Animal{ 
+    void eat(){ 
+    System.out.println("I am eating"); 
+    } 
+    void bark()
+    {
+        System.out.println("I am barking");
+    }
+    
+} 
+public class InheritenceExample{ 
+    public static void main(String[] args){ 
+       Dog dog = new Dog(); 
+       dog.walk(); 
+       dog.eat();
+       dog.bark();
+        
+    } 
+ 
+ 
+    
+} 
+
+q9
+true
+true
+false
+false
+true
+false
+false
+true
+
+
