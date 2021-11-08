@@ -1,0 +1,431 @@
+q1
+
+
+import java.util.*;
+abstract class Shape
+{
+    protected String name;
+    Shape(String name)
+    {
+        this.name=name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public abstract float  calculateArea();
+}
+class Circle extends Shape
+{
+   private int radius;
+    Circle(String name,int radius)
+    {
+        super(name);
+        this.radius=radius;
+       
+       
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+   
+    @Override
+    public float calculateArea() {
+       
+        return (float)3.14 * radius * radius;
+     }
+   
+}
+class Square extends Shape
+{
+private int side;
+
+    public Square(String name,int side)
+    {
+        super(name);
+        this.side=side;
+    }
+ 
+    @Override
+    public float calculateArea() {
+        return (float)side*side;
+           }
+
+    public int getSide() {
+        return side;
+    }
+
+    public void setSide(int side) {
+        this.side = side;
+    }
+   
+}
+class Rectangle extends Shape
+{
+    private int length,breadth;
+
+    public Rectangle(String name,int length,int breadth)
+    {
+        super(name);
+        this.length=length;
+        this.breadth=breadth;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getBreadth() {
+        return breadth;
+    }
+
+    public void setBreadth(int breadth) {
+        this.breadth = breadth;
+    }
+
+    @Override
+    public float calculateArea() {
+     return (float)length*breadth;      
+    }
+ 
+   
+   
+   
+}
+public class Main {
+    public static void main(String[] arg)
+    {
+        Scanner sc=new Scanner(System.in);
+      System.out.println("Circle");
+      System.out.println("Square");
+      System.out.println("Rectangle");
+      System.out.println("Enter the shape name");
+      String name=sc.next();
+      if(name.equals("Circle"))
+      {
+         System.out.println("Enter the radius") ;
+         int radius=sc.nextInt();
+         Shape circle=new Circle(name,radius);
+         System.out.printf("%.2f",circle.calculateArea());
+         
+      }
+      else if(name.equals("Square"))
+      {
+         System.out.println("Enter the side") ;
+         int side=sc.nextInt();
+         Shape square=new Circle(name,side);
+         System.out.printf("%.2f",square.calculateArea());
+      }
+     
+      else if(name.equals("Rectangle"))
+      {
+          System.out.println("Enter the length") ;
+         int length=sc.nextInt();
+          System.out.println("Enter the breadth") ;
+         int breadth=sc.nextInt();
+         Shape rectangle=new Rectangle(name,length,breadth);
+         System.out.printf("%.2f",rectangle.calculateArea());
+      }
+    }
+   
+}
+
+
+q2
+
+import java.util.*;
+interface AdvancedArithmetic
+{
+   int divisorSum(int num);
+}
+public class MyCalculator  implements AdvancedArithmetic
+{
+    int total=0;
+
+    @Override
+    public int divisorSum(int num)
+          {
+              for(int i=1;i<=num;i++)
+              {
+                  if(num%i==0)
+                  {
+                      total=total+num;
+                  }
+              }
+              return total;
+          }
+    public static void main(String[] arg)
+    {
+        MyCalculator calc=new MyCalculator();
+       
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        System.out.println(calc.divisorSum(num));
+       
+    }
+   
+}
+
+
+q3
+
+import java.util.*;
+abstract class Card
+{
+    protected String holderName,cardNumber,expiryDate;
+
+    public String getHolderName() {
+        return holderName;
+    }
+
+    public void setHolderName(String holderName) {
+        this.holderName = holderName;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(String expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public Card(String holderName, String cardNumber, String expiryDate) {
+        this.holderName = holderName;
+        this.cardNumber = cardNumber;
+        this.expiryDate = expiryDate;
+    }
+   
+   
+}
+class MembershipCard extends Card
+{
+    private int rating;
+
+    public MembershipCard( String holderName, String cardNumber, String expiryDate,int rating) {
+        super(holderName, cardNumber, expiryDate);
+        this.rating = rating;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+   
+   
+}
+class PayBack extends Card
+{
+    private int pointEarned;
+    private double totalAmount;
+
+    public PayBack(String holderName, String cardNumber, String expiryDate,int pointEarned,double totalAmount) {
+        super(holderName, cardNumber, expiryDate);
+        this.pointEarned=pointEarned;
+        this.totalAmount=totalAmount;
+    }
+
+    public int getPointEarned() {
+        return pointEarned;
+    }
+
+    public void setPointEarned(int pointEarned) {
+        this.pointEarned = pointEarned;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+   
+   
+   
+}
+public class Main {
+    public static void main(String[] arg)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Select the Card");
+        System.out.println("PayBack card");
+        System.out.println("MemberShip Card");
+        int ch=sc.nextInt();
+        switch(ch)
+        {
+            case 1:
+                System.out.println("Enter the Card Details");
+                String card=sc.next();
+                System.out.println("Enter points in card");
+                int point=sc.nextInt();
+                System.out.println("Enter Amount");
+                double amount=sc.nextDouble();
+                String[] arr=card.split("\\|");
+                System.out.println(arr[0]+"`s "+"Payback Card Details:");
+                System.out.println("Card Number"+arr[1]);
+                System.out.println("Points Earned"+point);
+                System.out.println("Total Amount"+ amount);
+               
+                break;
+               
+            case 2:
+                System.out.println("Enter the Card Details");
+                String membercard=sc.next();
+                System.out.println("Enter rating in card");
+                int rating=sc.nextInt();
+                 String[] arr1=membercard.split("\\|");
+                System.out.println(arr1[0]+"`s "+"Membership Card Details:");
+                System.out.println("Card Number"+arr1[1]);
+                System.out.println("Rating "+rating);
+                break;
+                           
+        }
+    }
+}
+
+
+q4
+
+
+public class OOPExercises { 
+
+    public static void main(String[] args) { 
+
+        A objA = new A(); 
+
+        System.out.println("in main(): "); 
+
+        System.out.println("objA.a = "+objA.a); 
+
+        objA.a = 222; 
+
+    } 
+
+} 
+
+ 
+
+public class A { 
+
+    private int a = 100; 
+
+    public void setA( int value) { 
+
+        a = value; 
+
+} 
+
+    public int getA() { 
+
+        return a; 
+
+    } 
+
+} //class A 
+Error in this code due to private int a=100 because private variable can`t be accessible outside of the class. To fix this error 
+change the code like this
+public class OOPExercises { 
+
+    public static void main(String[] args) { 
+
+        A objA = new A(); 
+
+        System.out.println("in main(): "); 
+
+        System.out.println("objA.a = "+objA.getA()); 
+
+        objA.setA(222);
+
+    } 
+
+} 
+q5
+
+class FirstClass
+{
+    int a=100;
+    FirstClass()
+    {
+       System.out.println("In The Constructor of class FirstClass:");
+       System.out.println("a= "+a);
+       a=333;
+       System.out.println("a= "+a);
+    }
+    public void setFirstClass(int value)
+    {
+       a=value;
+    }
+    public int getFirstClass()
+    {
+        return a;
+    }
+}
+class SecondClass
+{
+     double b=123.45;
+    SecondClass()
+    {
+       System.out.println("In The Constructor of class B:");
+       System.out.println("b= "+b);
+        b=3.14159;
+       System.out.println("b= "+b);
+    }
+    public void setSecondClass(double value)
+    {
+       b=value;
+    }
+    public double getSecondClass()
+    {
+        return b;
+    }
+}
+public class OOPExercise
+{
+    public static void main(String[] arg)
+    {
+        FirstClass f=new FirstClass();
+        SecondClass s=new SecondClass();
+        System.out.println("In main():");
+        System.out.println("objA.a="+f.getFirstClass());
+        System.out.println("objB.b="+s.getSecondClass());
+        f.setFirstClass(222);
+        s.setSecondClass(333.33);
+        System.out.println("objA.a="+f.getFirstClass());
+        System.out.println("objB.b="+s.getSecondClass());
+         
+    }
+}
+
+q6
+
+a in A = 100
+a in B = 123
+a in B = 123
+a in c = 543
+a in c = 543
+a in c = 543
